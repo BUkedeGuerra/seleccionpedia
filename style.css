@@ -1,0 +1,119 @@
+@import url(/fullpage.css);
+@font-face {
+  font-family: LaRoja-Estrecha;
+  src: url(/fonts/LaRoja-EstrechaBold.woff);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: LaRoja-Estrecha;
+  src: url(/fonts/LaRoja-EstrechaRegular.woff);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(/fonts/Montserrat-Regular.woff2);
+  font-weight: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Montserrat;
+}
+
+html {
+  --rojo: rgb(228, 0, 43);
+  --amarillo: rgb(255, 200, 69);
+  --granate: rgb(80, 0, 34);
+}
+
+/* section.color1 {
+  background-color: rgb(228, 0, 43) !important;
+}
+
+section.color2 {
+  background-color: rgb(255, 200, 69) !important;
+}
+
+section.color3 {
+  background-color: rgb(80, 0, 34) !important;
+}
+ */
+h2 {
+  font-family: LaRoja-Estrecha;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+h3 {
+  font-family: LaRoja-Estrecha;
+  font-size: 2rem;
+}
+
+p {
+  font-family: Montserrat;
+}
+
+section {
+  color: white;
+  padding-left: 2rem;
+  padding-right: 3rem;
+}
+
+section.amarillo * {
+  color: black;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+table {
+  background-color: transparent !important;
+  border: 0 !important;
+  margin: 0 auto !important;
+  width: 90%;
+}
+
+th {
+  background-color: var(--rojo);
+}
+
+td {
+  width: 20%;
+}
+
+section.rojo th {
+  background-color: var(--granate);
+}
+
+.media {
+  display: flex;
+  justify-content: space-around;
+}
+
+.media img {
+  max-width: 40%;
+  max-height: 40%;
+}
+
+section.section {
+  background-size: cover;
+  background-blend-mode: screen;
+}
+
+@keyframes movimiento {
+  from {
+    opacity: 0;
+  }
+}
+
+.movimiento {
+  animation-name: movimiento;
+  animation-duration: 100ms;
+  animation-fill-mode: backwards;
+}
