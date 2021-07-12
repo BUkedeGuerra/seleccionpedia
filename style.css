@@ -42,6 +42,7 @@ section.color3 {
   background-color: rgb(80, 0, 34) !important;
 }
  */
+h2,
 h2 {
   font-family: LaRoja-Estrecha;
   font-weight: bold;
@@ -107,13 +108,27 @@ section.section {
 }
 
 @keyframes movimiento {
-  from {
-    opacity: 0;
+  to {
+    opacity: 100;
   }
 }
 
-.movimiento {
+span.movimiento {
   animation-name: movimiento;
   animation-duration: 100ms;
   animation-fill-mode: backwards;
+  animation-delay: 1s;
+  font-family: inherit;
+}
+
+span.oculto {
+  opacity: 0;
+}
+
+footer * {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  margin: 1rem 0;
 }

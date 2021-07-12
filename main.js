@@ -1,13 +1,12 @@
 "use strict";
 
-console.log("Hello");
-
+/////////////////////////// CAMBIAR ENLACES RELATIVOS A ABSOLUTOS //////////////////////
 const links = document.querySelectorAll("[href^='/']:not([href^='//'])");
 console.log(links);
 
 for (const link of links) {
   const ruta = link.getAttribute("href");
-  console.log(ruta);
+  /* console.log(ruta); */
   link.setAttribute("href", "http://wikipedia.org" + ruta);
 }
 
@@ -17,14 +16,27 @@ for (const enlace of enlaces) {
   enlace.setAttribute("target", "_blank");
 }
 
-const inicio = document.querySelector(".contenedormovimiento");
-console.log(inicio);
+///////////////////////////////// ANIMACIÓN LETRAS //////////////////
+const titulos = document.querySelectorAll("h2, h3");
+console.log(titulos);
 
 function movimiento(elemento) {
-  console.log(elemento.innerHTML.split(""));
+  const letras = elemento.textContent.split("");
+  elemento.textContent = "";
+  for (let i = 0; i < letras.length; i++) {
+    const span = document.createElement("span");
+    span.textContent = letras[i];
+    span.classList.add("movimiento");
+    span.style.animationDelay = i / 5 + "s";
+    elemento.append(span);
+  }
 }
 
-movimiento(inicio);
+for (let titulo of titulos) {
+  movimiento(titulo);
+}
+
+////////////////////////// IMÁGENES DEL FONDO :) ///////////////////////////////
 
 function getData(url) {
   return fetch(url).then((response) => response.json());
