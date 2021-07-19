@@ -43,10 +43,11 @@ section.color3 {
 }
  */
 h2,
-h2 {
+h3 {
   font-family: LaRoja-Estrecha;
   font-weight: bold;
   font-size: 3rem;
+  opacity: 0;
 }
 
 h3 {
@@ -108,21 +109,20 @@ section.section {
 }
 
 @keyframes movimiento {
+  from {
+    opacity: 0;
+  }
   to {
-    opacity: 100;
+    opacity: 1;
   }
 }
 
-span.movimiento {
-  animation-name: movimiento;
+.movimiento {
+  animation-name: movimiento, borde;
   animation-duration: 100ms;
-  animation-fill-mode: backwards;
+  animation-fill-mode: both, none;
   animation-delay: 1s;
   font-family: inherit;
-}
-
-span.oculto {
-  opacity: 0;
 }
 
 footer * {
@@ -131,4 +131,18 @@ footer * {
   text-align: center;
   font-size: 2rem;
   margin: 1rem 0;
+}
+
+h3 span,
+h2 span {
+  opacity: 0;
+}
+
+@keyframes borde {
+  from {
+    border-right: 0;
+  }
+  to {
+    border-right: 5px solid gray;
+  }
 }

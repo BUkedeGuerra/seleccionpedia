@@ -6,7 +6,6 @@ console.log(links);
 
 for (const link of links) {
   const ruta = link.getAttribute("href");
-  /* console.log(ruta); */
   link.setAttribute("href", "http://wikipedia.org" + ruta);
 }
 
@@ -27,13 +26,23 @@ function movimiento(elemento) {
     const span = document.createElement("span");
     span.textContent = letras[i];
     span.classList.add("movimiento");
-    span.style.animationDelay = i / 5 + "s";
+    span.style.animationDelay = i / 5 + 1 + "s";
     elemento.append(span);
   }
 }
 
 for (let titulo of titulos) {
-  movimiento(titulo);
+  titulo.style.opacity = 0;
+  let callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) movimiento(entry.target);
+    });
+  };
+
+  let observer = new IntersectionObserver(callback);
+
+  observer.observe(titulo);
+  titulo.style.opacity = 1;
 }
 
 ////////////////////////// IMÁGENES DEL FONDO :) ///////////////////////////////
@@ -54,4 +63,4 @@ async function imagenesfondo() {
   }
 }
 
-/* imagenesfondo(); */
+imagenesfondo();
